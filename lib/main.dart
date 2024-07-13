@@ -2,6 +2,7 @@ import 'package:alahram/home_view.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'generated/l10n.dart';
 
 void main() {
@@ -13,22 +14,27 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      locale: const Locale("en"),
-      localizationsDelegates: const [
-        S.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: S.delegate.supportedLocales,
-      title: 'AlAhram',
-      home: AnimatedSplashScreen(
-        splash: 'assets/images/logo.png',
-        nextScreen: const HomeView(),
-        splashTransition: SplashTransition.rotationTransition,
-        // pageTransitionType: PageTransitionType.scale,
-      ),
-    );
+    return ScreenUtilInit(
+        designSize: const Size(360, 690),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (_, child) {
+          return MaterialApp(
+            locale: const Locale("en"),
+            localizationsDelegates: const [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: S.delegate.supportedLocales,
+            title: 'AlAhram',
+            home: AnimatedSplashScreen(
+              splash: 'assets/images/logo.png',
+              nextScreen: const HomeView(),
+              splashTransition: SplashTransition.rotationTransition,
+            ),
+          );
+        });
   }
 }
