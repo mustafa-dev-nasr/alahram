@@ -1,4 +1,4 @@
-import 'package:alahram/animation_splash_screen_custom_padge.dart';
+import 'package:alahram/core/helper/animation_splash_screen_custom_padge.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
