@@ -1,5 +1,4 @@
-import 'package:alahram/home_view.dart';
-import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:alahram/animation_splash_screen_custom_padge.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -29,12 +28,9 @@ class MyApp extends StatelessWidget {
             ],
             supportedLocales: S.delegate.supportedLocales,
             title: 'AlAhram',
-            home: AnimatedSplashScreen(
-              splash: 'assets/images/logo.png',
-              nextScreen: const HomeView(),
-              splashTransition: SplashTransition.rotationTransition,
-            ),
+            home: const AnimationSplashScreenCustomPadge(),
           );
         });
   }
 }
+
